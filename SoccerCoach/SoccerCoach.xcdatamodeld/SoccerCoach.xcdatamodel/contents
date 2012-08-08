@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Event" syncable="YES">
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="Game" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="goalsAgainst" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -35,10 +38,11 @@
         <relationship name="players" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Team" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Player" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Game" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="GamePlayer" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="PlayingTime" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Game" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="GamePlayer" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Player" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="PlayingTime" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Team" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>
