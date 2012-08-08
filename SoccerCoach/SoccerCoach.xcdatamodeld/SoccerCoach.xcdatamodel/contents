@@ -9,6 +9,7 @@
         <attribute name="goalsFor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isEnded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isStarted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="numFieldPlayers" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="numPeriods" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="periodLengthInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="gamePlayers" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GamePlayer" inverseName="game" inverseEntity="GamePlayer" syncable="YES"/>
@@ -21,7 +22,9 @@
         <relationship name="playingTimes" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PlayingTime" inverseName="gamePlayer" inverseEntity="PlayingTime" syncable="YES"/>
     </entity>
     <entity name="Player" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gamesPlayed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GamePlayer" inverseName="player" inverseEntity="GamePlayer" syncable="YES"/>
         <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="players" inverseEntity="Team" syncable="YES"/>
     </entity>
@@ -36,13 +39,21 @@
         <attribute name="season" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="games" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="team" inverseEntity="Game" syncable="YES"/>
         <relationship name="players" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
+        <relationship name="teamGameSettings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TeamGameSetting" inverseName="team" inverseEntity="TeamGameSetting" syncable="YES"/>
+    </entity>
+    <entity name="TeamGameSetting" syncable="YES">
+        <attribute name="numFieldPlayers" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numPeriods" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="periodLengthInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamGameSettings" inverseEntity="Team" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Game" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="GamePlayer" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Player" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="PlayingTime" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Team" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Game" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GamePlayer" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Player" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PlayingTime" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Team" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TeamGameSetting" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
