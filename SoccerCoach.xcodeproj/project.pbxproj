@@ -47,15 +47,15 @@
 		20FA4E3615D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		20FA4E3815D2205200A863EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		20FA4E3A15D2205200A863EE /* SoccerCoach-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoccerCoach-Prefix.pch"; sourceTree = "<group>"; };
-		20FA4E3B15D2205200A863EE /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
-		20FA4E3C15D2205200A863EE /* SCAppDelegate.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
+		20FA4E3B15D2205200A863EE /* SCAppDelegate.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
+		20FA4E3C15D2205200A863EE /* SCAppDelegate.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E3F15D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		20FA4E4215D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		20FA4E4515D2205200A863EE /* SoccerCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoccerCoach.xcdatamodel; sourceTree = "<group>"; };
-		20FA4E4715D2205200A863EE /* SCMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; };
-		20FA4E4815D2205200A863EE /* SCMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; };
-		20FA4E4A15D2205200A863EE /* SCDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; };
-		20FA4E4B15D2205200A863EE /* SCDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; };
+		20FA4E4715D2205200A863EE /* SCMasterViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
+		20FA4E4815D2205200A863EE /* SCMasterViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
+		20FA4E4A15D2205200A863EE /* SCDetailViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
+		20FA4E4B15D2205200A863EE /* SCDetailViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E5215D2205200A863EE /* SoccerCoachTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoccerCoachTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FA4E5315D2205200A863EE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		20FA4E5C15D2205200A863EE /* SoccerCoachTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SoccerCoachTests-Info.plist"; sourceTree = "<group>"; };
@@ -497,6 +497,7 @@
 				20FA4E6715D2205200A863EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20FA4E6815D2205200A863EE /* Build configuration list for PBXNativeTarget "SoccerCoachTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +506,7 @@
 				20FA4E6A15D2205200A863EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
