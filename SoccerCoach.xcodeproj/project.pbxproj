@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203DA33115D78AB400511E7C /* SCAddTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203DA33015D78AB400511E7C /* SCAddTeamView.m */; };
+		205412AA15D4DDC600E3F9AE /* SCTeamBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */; };
+		20545D4B15D43E9900505E7F /* SCTeamSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */; };
 		20FA4E2B15D2205200A863EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2A15D2205200A863EE /* UIKit.framework */; };
 		20FA4E2D15D2205200A863EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2C15D2205200A863EE /* Foundation.framework */; };
 		20FA4E2F15D2205200A863EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2E15D2205200A863EE /* CoreGraphics.framework */; };
@@ -14,30 +17,18 @@
 		20FA4E3715D2205200A863EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20FA4E3515D2205200A863EE /* InfoPlist.strings */; };
 		20FA4E3915D2205200A863EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E3815D2205200A863EE /* main.m */; };
 		20FA4E3D15D2205200A863EE /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E3C15D2205200A863EE /* SCAppDelegate.m */; };
-		20FA4E4015D2205200A863EE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20FA4E3E15D2205200A863EE /* MainStoryboard_iPhone.storyboard */; };
-		20FA4E4315D2205200A863EE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20FA4E4115D2205200A863EE /* MainStoryboard_iPad.storyboard */; };
 		20FA4E4615D2205200A863EE /* SoccerCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4415D2205200A863EE /* SoccerCoach.xcdatamodeld */; };
 		20FA4E4915D2205200A863EE /* SCMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4815D2205200A863EE /* SCMasterViewController.m */; };
 		20FA4E4C15D2205200A863EE /* SCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4B15D2205200A863EE /* SCDetailViewController.m */; };
-		20FA4E5415D2205200A863EE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E5315D2205200A863EE /* SenTestingKit.framework */; };
-		20FA4E5515D2205200A863EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2A15D2205200A863EE /* UIKit.framework */; };
-		20FA4E5615D2205200A863EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2C15D2205200A863EE /* Foundation.framework */; };
-		20FA4E5715D2205200A863EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E3015D2205200A863EE /* CoreData.framework */; };
-		20FA4E5F15D2205200A863EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20FA4E5D15D2205200A863EE /* InfoPlist.strings */; };
-		20FA4E6215D2205200A863EE /* SoccerCoachTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E6115D2205200A863EE /* SoccerCoachTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		20FA4E5815D2205200A863EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 20FA4E1D15D2205200A863EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 20FA4E2515D2205200A863EE;
-			remoteInfo = SoccerCoach;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		203DA32F15D78AB400511E7C /* SCAddTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddTeamView.h; sourceTree = "<group>"; };
+		203DA33015D78AB400511E7C /* SCAddTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddTeamView.m; sourceTree = "<group>"; };
+		205412A815D4DDC600E3F9AE /* SCTeamBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamBubbleView.h; sourceTree = "<group>"; };
+		205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTeamBubbleView.m; sourceTree = "<group>"; };
+		20545D4915D43E9900505E7F /* SCTeamSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamSelectorViewController.h; sourceTree = "<group>"; };
+		20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCTeamSelectorViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		20FA4E2615D2205200A863EE /* SoccerCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoccerCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FA4E2A15D2205200A863EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		20FA4E2C15D2205200A863EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,19 +40,12 @@
 		20FA4E3A15D2205200A863EE /* SoccerCoach-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoccerCoach-Prefix.pch"; sourceTree = "<group>"; };
 		20FA4E3B15D2205200A863EE /* SCAppDelegate.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E3C15D2205200A863EE /* SCAppDelegate.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
-		20FA4E3F15D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		20FA4E4215D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		20FA4E4515D2205200A863EE /* SoccerCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoccerCoach.xcdatamodel; sourceTree = "<group>"; };
 		20FA4E4715D2205200A863EE /* SCMasterViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E4815D2205200A863EE /* SCMasterViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E4A15D2205200A863EE /* SCDetailViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E4B15D2205200A863EE /* SCDetailViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
-		20FA4E5215D2205200A863EE /* SoccerCoachTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoccerCoachTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FA4E5315D2205200A863EE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		20FA4E5C15D2205200A863EE /* SoccerCoachTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SoccerCoachTests-Info.plist"; sourceTree = "<group>"; };
-		20FA4E5E15D2205200A863EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		20FA4E6015D2205200A863EE /* SoccerCoachTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoccerCoachTests.h; sourceTree = "<group>"; };
-		20FA4E6115D2205200A863EE /* SoccerCoachTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoccerCoachTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,17 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20FA4E4E15D2205200A863EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				20FA4E5415D2205200A863EE /* SenTestingKit.framework in Frameworks */,
-				20FA4E5515D2205200A863EE /* UIKit.framework in Frameworks */,
-				20FA4E5615D2205200A863EE /* Foundation.framework in Frameworks */,
-				20FA4E5715D2205200A863EE /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				20FA4E3215D2205200A863EE /* SoccerCoach */,
-				20FA4E5A15D2205200A863EE /* SoccerCoachTests */,
 				20FA4E2915D2205200A863EE /* Frameworks */,
 				20FA4E2715D2205200A863EE /* Products */,
 			);
@@ -104,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				20FA4E2615D2205200A863EE /* SoccerCoach.app */,
-				20FA4E5215D2205200A863EE /* SoccerCoachTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +95,6 @@
 		20FA4E3215D2205200A863EE /* SoccerCoach */ = {
 			isa = PBXGroup;
 			children = (
-				20FA4E6E15D2220800A863EE /* Interfaces */,
 				20FA4E6D15D221F900A863EE /* Models */,
 				20FA4E6C15D221EB00A863EE /* Views */,
 				20FA4E6B15D221D400A863EE /* Controllers */,
@@ -144,25 +114,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		20FA4E5A15D2205200A863EE /* SoccerCoachTests */ = {
-			isa = PBXGroup;
-			children = (
-				20FA4E6015D2205200A863EE /* SoccerCoachTests.h */,
-				20FA4E6115D2205200A863EE /* SoccerCoachTests.m */,
-				20FA4E5B15D2205200A863EE /* Supporting Files */,
-			);
-			path = SoccerCoachTests;
-			sourceTree = "<group>";
-		};
-		20FA4E5B15D2205200A863EE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				20FA4E5C15D2205200A863EE /* SoccerCoachTests-Info.plist */,
-				20FA4E5D15D2205200A863EE /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		20FA4E6B15D221D400A863EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +123,8 @@
 				20FA4E4815D2205200A863EE /* SCMasterViewController.m */,
 				20FA4E4A15D2205200A863EE /* SCDetailViewController.h */,
 				20FA4E4B15D2205200A863EE /* SCDetailViewController.m */,
+				20545D4915D43E9900505E7F /* SCTeamSelectorViewController.h */,
+				20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +132,10 @@
 		20FA4E6C15D221EB00A863EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				205412A815D4DDC600E3F9AE /* SCTeamBubbleView.h */,
+				205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */,
+				203DA32F15D78AB400511E7C /* SCAddTeamView.h */,
+				203DA33015D78AB400511E7C /* SCAddTeamView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -189,15 +146,6 @@
 				20FA4E4415D2205200A863EE /* SoccerCoach.xcdatamodeld */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		20FA4E6E15D2220800A863EE /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				20FA4E3E15D2205200A863EE /* MainStoryboard_iPhone.storyboard */,
-				20FA4E4115D2205200A863EE /* MainStoryboard_iPad.storyboard */,
-			);
-			name = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,25 +167,6 @@
 			productName = SoccerCoach;
 			productReference = 20FA4E2615D2205200A863EE /* SoccerCoach.app */;
 			productType = "com.apple.product-type.application";
-		};
-		20FA4E5115D2205200A863EE /* SoccerCoachTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20FA4E6815D2205200A863EE /* Build configuration list for PBXNativeTarget "SoccerCoachTests" */;
-			buildPhases = (
-				20FA4E4D15D2205200A863EE /* Sources */,
-				20FA4E4E15D2205200A863EE /* Frameworks */,
-				20FA4E4F15D2205200A863EE /* Resources */,
-				20FA4E5015D2205200A863EE /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				20FA4E5915D2205200A863EE /* PBXTargetDependency */,
-			);
-			name = SoccerCoachTests;
-			productName = SoccerCoachTests;
-			productReference = 20FA4E5215D2205200A863EE /* SoccerCoachTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -262,7 +191,6 @@
 			projectRoot = "";
 			targets = (
 				20FA4E2515D2205200A863EE /* SoccerCoach */,
-				20FA4E5115D2205200A863EE /* SoccerCoachTests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,36 +201,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FA4E3715D2205200A863EE /* InfoPlist.strings in Resources */,
-				20FA4E4015D2205200A863EE /* MainStoryboard_iPhone.storyboard in Resources */,
-				20FA4E4315D2205200A863EE /* MainStoryboard_iPad.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20FA4E4F15D2205200A863EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				20FA4E5F15D2205200A863EE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		20FA4E5015D2205200A863EE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		20FA4E2215D2205200A863EE /* Sources */ = {
@@ -314,56 +216,19 @@
 				20FA4E4615D2205200A863EE /* SoccerCoach.xcdatamodeld in Sources */,
 				20FA4E4915D2205200A863EE /* SCMasterViewController.m in Sources */,
 				20FA4E4C15D2205200A863EE /* SCDetailViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20FA4E4D15D2205200A863EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				20FA4E6215D2205200A863EE /* SoccerCoachTests.m in Sources */,
+				20545D4B15D43E9900505E7F /* SCTeamSelectorViewController.m in Sources */,
+				205412AA15D4DDC600E3F9AE /* SCTeamBubbleView.m in Sources */,
+				203DA33115D78AB400511E7C /* SCAddTeamView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		20FA4E5915D2205200A863EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 20FA4E2515D2205200A863EE /* SoccerCoach */;
-			targetProxy = 20FA4E5815D2205200A863EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		20FA4E3515D2205200A863EE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				20FA4E3615D2205200A863EE /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		20FA4E3E15D2205200A863EE /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				20FA4E3F15D2205200A863EE /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		20FA4E4115D2205200A863EE /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				20FA4E4215D2205200A863EE /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		20FA4E5D15D2205200A863EE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				20FA4E5E15D2205200A863EE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -444,40 +309,6 @@
 			};
 			name = Release;
 		};
-		20FA4E6915D2205200A863EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoccerCoach.app/SoccerCoach";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SoccerCoach/SoccerCoach-Prefix.pch";
-				INFOPLIST_FILE = "SoccerCoachTests/SoccerCoachTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		20FA4E6A15D2205200A863EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoccerCoach.app/SoccerCoach";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SoccerCoach/SoccerCoach-Prefix.pch";
-				INFOPLIST_FILE = "SoccerCoachTests/SoccerCoachTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -495,15 +326,6 @@
 			buildConfigurations = (
 				20FA4E6615D2205200A863EE /* Debug */,
 				20FA4E6715D2205200A863EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		20FA4E6815D2205200A863EE /* Build configuration list for PBXNativeTarget "SoccerCoachTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				20FA4E6915D2205200A863EE /* Debug */,
-				20FA4E6A15D2205200A863EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

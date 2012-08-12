@@ -9,6 +9,7 @@
 #import "SCAppDelegate.h"
 
 #import "SCMasterViewController.h"
+#import "SCTeamSelectorViewController.h"
 
 @implementation SCAppDelegate
 
@@ -19,52 +20,74 @@
 // Override point for customization after application launch.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+	UIWindow* window  =  [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	window.backgroundColor = [UIColor whiteColor];
+	self.window = window;
+
+
+	SCTeamSelectorViewController* teamSelectorViewController = [[SCTeamSelectorViewController alloc] init];
+	UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:teamSelectorViewController];
+	self.window.rootViewController = navController;
+
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-		//
-		// When running an iPad
-		//
-
-		// Cast the window root view controller to a UISplitViewController.
-		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-
-		// Find the last viewController assigned and case to UINavicationController.
-		// [QUESTION] is it just me or is this totally hokey?
-		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-
-		// Set the split's delegate to the nav's topViewController
-		// [QUESTION] What is the topViewController?
-		splitViewController.delegate = (id)navigationController.topViewController;
-
-		// Grab the first view controller from the split and assign as master nav controller.
-		UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-
-		// Cast the master nav controller's topViewController to our
-		// SCMasterViewController. This is officially our code.
-		SCMasterViewController *controller = (SCMasterViewController *)masterNavigationController.topViewController;
-
-		// Set our managed object context (data model query engine) to
-		// the one returned by this property.
-		controller.managedObjectContext = self.managedObjectContext;
+		// ipad
 	}
-	else
-	{
-		//
-		// When running an iPhone
-		//
-
-		// Cast the window root view controller to a nav controller.
-		UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-
-		// Cast the nav controller's topViewController to our
-		// SCMasterViewController. This is officially our code.
-		SCMasterViewController *controller = (SCMasterViewController *)navigationController.topViewController;
-
-		// Set our managed object context (data model query engine) to
-		// the one returned by this property.
-		controller.managedObjectContext = self.managedObjectContext;
+	else {
+		// iphone
 	}
+
+
+	[self.window makeKeyAndVisible];
 
 	return YES;
+
+//	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//		//
+//		// When running an iPad
+//		//
+//
+//		// Cast the window root view controller to a UISplitViewController.
+//		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+//
+//		// Find the last viewController assigned and case to UINavicationController.
+//		// [QUESTION] is it just me or is this totally hokey?
+//		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+//
+//		// Set the split's delegate to the nav's topViewController
+//		// [QUESTION] What is the topViewController?
+//		splitViewController.delegate = (id)navigationController.topViewController;
+//
+//		// Grab the first view controller from the split and assign as master nav controller.
+//		UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
+//
+//		// Cast the master nav controller's topViewController to our
+//		// SCMasterViewController. This is officially our code.
+//		SCMasterViewController *controller = (SCMasterViewController *)masterNavigationController.topViewController;
+//
+//		// Set our managed object context (data model query engine) to
+//		// the one returned by this property.
+//		controller.managedObjectContext = self.managedObjectContext;
+//	}
+//	else
+//	{
+//		//
+//		// When running an iPhone
+//		//
+//
+//		// Cast the window root view controller to a nav controller.
+//		UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//
+//		// Cast the nav controller's topViewController to our
+//		// SCMasterViewController. This is officially our code.
+//		SCMasterViewController *controller = (SCMasterViewController *)navigationController.topViewController;
+//
+//		// Set our managed object context (data model query engine) to
+//		// the one returned by this property.
+//		controller.managedObjectContext = self.managedObjectContext;
+//	}
+//
+//	return YES;
 }
 
 //

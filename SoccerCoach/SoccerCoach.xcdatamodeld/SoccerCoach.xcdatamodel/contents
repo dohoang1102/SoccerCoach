@@ -48,12 +48,12 @@
         <relationship name="team" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamGameSettings" inverseEntity="Team" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Game" positionX="0" positionY="0" width="0" height="0"/>
         <element name="GamePlayer" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Player" positionX="0" positionY="0" width="0" height="0"/>
         <element name="PlayingTime" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Team" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
         <element name="TeamGameSetting" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
