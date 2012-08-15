@@ -6,42 +6,51 @@
 //  Copyright (c) 2012 rand9. All rights reserved.
 //
 
-#import "SCTeamBubbleView.h"
+#import "SCTeamShowView.h"
 
-@implementation SCTeamBubbleView
+@implementation SCTeamShowView
 
-@synthesize teamName;
+@synthesize team;
 @synthesize tapRecognizer;
 @synthesize pressRecognizer;
 
 - (id)initWithFrame:(CGRect)frame
-            andTeam:(NSString*)name
+            andTeam:(Team*)aTeam
 {
   self = [super initWithFrame:frame];
   
   if (self) {
+    team = aTeam;
     self.isNewTeamView = NO;
-    self.teamName = name;
     self.backgroundColor = [UIColor clearColor];
 
-    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                  action:@selector(handleTapGesture:)];
 
-    self.pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+    pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                          action:@selector(handleLongPressGesture:)];
     
     [self addGestureRecognizer:tapRecognizer];
     [self addGestureRecognizer:pressRecognizer];
 
-    UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ((self.frame.size.height / 2) - 10), self.frame.size.width, 20)];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ((self.frame.size.height / 2) - 10), self.frame.size.width, 20)];
     nameLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     nameLabel.textAlignment = UITextAlignmentCenter;
     nameLabel.backgroundColor = [UIColor clearColor];
-    nameLabel.text = self.teamName;
+    nameLabel.text = team.name;
     nameLabel.textColor = [UIColor blackColor];
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-    [self addSubview:nameLabel];
 
+    UILabel *seasonLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, nameLabel.frame.origin.y + 25, self.frame.size.width, 20)];
+    seasonLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    seasonLabel.textAlignment = UITextAlignmentCenter;
+    seasonLabel.backgroundColor = [UIColor clearColor];
+    seasonLabel.text = team.season;
+    seasonLabel.textColor = [UIColor grayColor];
+    seasonLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14];
+
+    [self addSubview:nameLabel];
+    [self addSubview:seasonLabel];
   }
 
   return self;
@@ -51,12 +60,15 @@
                 withViewController:(UIViewController*)viewController
                    withTapSelector:(SEL)tapSelector
 {
-  self = [self initWithFrame:frame andTeam:@"+ Add Team"];
+  self = [self initWithFrame:frame];
 
   if (self) {
     self.isNewTeamView = YES;
-    [self removeGestureRecognizer:self.tapRecognizer];
+    
+    team = [[Team alloc] init];
+    team.name = @"+ add team";
 
+    [self removeGestureRecognizer:self.tapRecognizer];
     self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:viewController
                                                                  action:tapSelector];
     [self addGestureRecognizer:tapRecognizer];
@@ -106,12 +118,12 @@
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)tapRecognizer
 {
-  NSLog(@"received a tap gesture on %@", self.teamName);
+  NSLog(@"received a tap gesture on %@", team.name);
 }
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)tapRecognizer
 {
-  NSLog(@"received a long press gesture on %@", self.teamName);
+  NSLog(@"received a long press gesture on %@", team.name);
 }
 
 @end

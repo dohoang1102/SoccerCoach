@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
 
-@interface SCTeamBubbleView : UIView
+@interface SCTeamShowView : UIView
 
 - (id)initWithFrame:(CGRect)frame
-            andTeam:(NSString*)name;
+            andTeam:(Team*)aTeam;
 
 - (id)initAsNewTeamButtonWithFrame:(CGRect)frame
                 withViewController:(UIViewController*)viewController
                    withTapSelector:(SEL)tapSelector;
 
-@property (nonatomic, retain) NSString* teamName;
-@property (nonatomic,retain) UITapGestureRecognizer* tapRecognizer;
-@property (nonatomic,retain) UILongPressGestureRecognizer* pressRecognizer;
+@property (nonatomic, retain) Team *team;
+@property (nonatomic,retain) UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic,retain) UILongPressGestureRecognizer *pressRecognizer;
 @property BOOL isNewTeamView;
 
 @end

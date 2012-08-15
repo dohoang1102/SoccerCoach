@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		203DA33115D78AB400511E7C /* SCAddTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203DA33015D78AB400511E7C /* SCAddTeamView.m */; };
-		205412AA15D4DDC600E3F9AE /* SCTeamBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */; };
-		20545D4B15D43E9900505E7F /* SCTeamSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */; };
+		203DA33115D78AB400511E7C /* SCTeamCreateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203DA33015D78AB400511E7C /* SCTeamCreateView.m */; };
+		20421CF915DB64DB002FD200 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20421CF815DB64DB002FD200 /* QuartzCore.framework */; };
+		205412AA15D4DDC600E3F9AE /* SCTeamShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 205412A915D4DDC600E3F9AE /* SCTeamShowView.m */; };
+		20545D4B15D43E9900505E7F /* SCTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20545D4A15D43E9900505E7F /* SCTeamViewController.m */; };
 		20FA4E2B15D2205200A863EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2A15D2205200A863EE /* UIKit.framework */; };
 		20FA4E2D15D2205200A863EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2C15D2205200A863EE /* Foundation.framework */; };
 		20FA4E2F15D2205200A863EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FA4E2E15D2205200A863EE /* CoreGraphics.framework */; };
@@ -18,17 +19,22 @@
 		20FA4E3915D2205200A863EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E3815D2205200A863EE /* main.m */; };
 		20FA4E3D15D2205200A863EE /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E3C15D2205200A863EE /* SCAppDelegate.m */; };
 		20FA4E4615D2205200A863EE /* SoccerCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4415D2205200A863EE /* SoccerCoach.xcdatamodeld */; };
-		20FA4E4915D2205200A863EE /* SCMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4815D2205200A863EE /* SCMasterViewController.m */; };
-		20FA4E4C15D2205200A863EE /* SCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FA4E4B15D2205200A863EE /* SCDetailViewController.m */; };
+		20FBA7B615D8BE11003EDA44 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7B515D8BE11003EDA44 /* Game.m */; };
+		20FBA7B915D8BE26003EDA44 /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7B815D8BE26003EDA44 /* GamePlayer.m */; };
+		20FBA7BC15D8BE37003EDA44 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7BB15D8BE37003EDA44 /* Player.m */; };
+		20FBA7BF15D8BE42003EDA44 /* PlayingTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7BE15D8BE42003EDA44 /* PlayingTime.m */; };
+		20FBA7C215D8BE51003EDA44 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7C115D8BE51003EDA44 /* Team.m */; };
+		20FBA7C515D8BE60003EDA44 /* TeamGameSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FBA7C415D8BE60003EDA44 /* TeamGameSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		203DA32F15D78AB400511E7C /* SCAddTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddTeamView.h; sourceTree = "<group>"; };
-		203DA33015D78AB400511E7C /* SCAddTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddTeamView.m; sourceTree = "<group>"; };
-		205412A815D4DDC600E3F9AE /* SCTeamBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamBubbleView.h; sourceTree = "<group>"; };
-		205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTeamBubbleView.m; sourceTree = "<group>"; };
-		20545D4915D43E9900505E7F /* SCTeamSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamSelectorViewController.h; sourceTree = "<group>"; };
-		20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCTeamSelectorViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		203DA32F15D78AB400511E7C /* SCTeamCreateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamCreateView.h; sourceTree = "<group>"; };
+		203DA33015D78AB400511E7C /* SCTeamCreateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTeamCreateView.m; sourceTree = "<group>"; };
+		20421CF815DB64DB002FD200 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		205412A815D4DDC600E3F9AE /* SCTeamShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamShowView.h; sourceTree = "<group>"; };
+		205412A915D4DDC600E3F9AE /* SCTeamShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTeamShowView.m; sourceTree = "<group>"; };
+		20545D4915D43E9900505E7F /* SCTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTeamViewController.h; sourceTree = "<group>"; };
+		20545D4A15D43E9900505E7F /* SCTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCTeamViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		20FA4E2615D2205200A863EE /* SoccerCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoccerCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FA4E2A15D2205200A863EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		20FA4E2C15D2205200A863EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,11 +47,19 @@
 		20FA4E3B15D2205200A863EE /* SCAppDelegate.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E3C15D2205200A863EE /* SCAppDelegate.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E4515D2205200A863EE /* SoccerCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoccerCoach.xcdatamodel; sourceTree = "<group>"; };
-		20FA4E4715D2205200A863EE /* SCMasterViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCMasterViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
-		20FA4E4815D2205200A863EE /* SCMasterViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCMasterViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
-		20FA4E4A15D2205200A863EE /* SCDetailViewController.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SCDetailViewController.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
-		20FA4E4B15D2205200A863EE /* SCDetailViewController.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 1; };
 		20FA4E5315D2205200A863EE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		20FBA7B415D8BE11003EDA44 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		20FBA7B515D8BE11003EDA44 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		20FBA7B715D8BE26003EDA44 /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
+		20FBA7B815D8BE26003EDA44 /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
+		20FBA7BA15D8BE37003EDA44 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		20FBA7BB15D8BE37003EDA44 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		20FBA7BD15D8BE42003EDA44 /* PlayingTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingTime.h; sourceTree = "<group>"; };
+		20FBA7BE15D8BE42003EDA44 /* PlayingTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingTime.m; sourceTree = "<group>"; };
+		20FBA7C015D8BE51003EDA44 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		20FBA7C115D8BE51003EDA44 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		20FBA7C315D8BE60003EDA44 /* TeamGameSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamGameSetting.h; sourceTree = "<group>"; };
+		20FBA7C415D8BE60003EDA44 /* TeamGameSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20421CF915DB64DB002FD200 /* QuartzCore.framework in Frameworks */,
 				20FA4E2B15D2205200A863EE /* UIKit.framework in Frameworks */,
 				20FA4E2D15D2205200A863EE /* Foundation.framework in Frameworks */,
 				20FA4E2F15D2205200A863EE /* CoreGraphics.framework in Frameworks */,
@@ -63,9 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2030E9CA15DC6BD6002469E0 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				205412A815D4DDC600E3F9AE /* SCTeamShowView.h */,
+				205412A915D4DDC600E3F9AE /* SCTeamShowView.m */,
+				203DA32F15D78AB400511E7C /* SCTeamCreateView.h */,
+				203DA33015D78AB400511E7C /* SCTeamCreateView.m */,
+			);
+			name = Team;
+			sourceTree = "<group>";
+		};
 		20FA4E1B15D2205200A863EE = {
 			isa = PBXGroup;
 			children = (
+				20421CF815DB64DB002FD200 /* QuartzCore.framework */,
 				20FA4E3215D2205200A863EE /* SoccerCoach */,
 				20FA4E2915D2205200A863EE /* Frameworks */,
 				20FA4E2715D2205200A863EE /* Products */,
@@ -119,12 +146,8 @@
 			children = (
 				20FA4E3B15D2205200A863EE /* SCAppDelegate.h */,
 				20FA4E3C15D2205200A863EE /* SCAppDelegate.m */,
-				20FA4E4715D2205200A863EE /* SCMasterViewController.h */,
-				20FA4E4815D2205200A863EE /* SCMasterViewController.m */,
-				20FA4E4A15D2205200A863EE /* SCDetailViewController.h */,
-				20FA4E4B15D2205200A863EE /* SCDetailViewController.m */,
-				20545D4915D43E9900505E7F /* SCTeamSelectorViewController.h */,
-				20545D4A15D43E9900505E7F /* SCTeamSelectorViewController.m */,
+				20545D4915D43E9900505E7F /* SCTeamViewController.h */,
+				20545D4A15D43E9900505E7F /* SCTeamViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -132,10 +155,7 @@
 		20FA4E6C15D221EB00A863EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				205412A815D4DDC600E3F9AE /* SCTeamBubbleView.h */,
-				205412A915D4DDC600E3F9AE /* SCTeamBubbleView.m */,
-				203DA32F15D78AB400511E7C /* SCAddTeamView.h */,
-				203DA33015D78AB400511E7C /* SCAddTeamView.m */,
+				2030E9CA15DC6BD6002469E0 /* Team */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -144,6 +164,18 @@
 			isa = PBXGroup;
 			children = (
 				20FA4E4415D2205200A863EE /* SoccerCoach.xcdatamodeld */,
+				20FBA7C315D8BE60003EDA44 /* TeamGameSetting.h */,
+				20FBA7C415D8BE60003EDA44 /* TeamGameSetting.m */,
+				20FBA7C015D8BE51003EDA44 /* Team.h */,
+				20FBA7C115D8BE51003EDA44 /* Team.m */,
+				20FBA7BD15D8BE42003EDA44 /* PlayingTime.h */,
+				20FBA7BE15D8BE42003EDA44 /* PlayingTime.m */,
+				20FBA7BA15D8BE37003EDA44 /* Player.h */,
+				20FBA7BB15D8BE37003EDA44 /* Player.m */,
+				20FBA7B715D8BE26003EDA44 /* GamePlayer.h */,
+				20FBA7B815D8BE26003EDA44 /* GamePlayer.m */,
+				20FBA7B415D8BE11003EDA44 /* Game.h */,
+				20FBA7B515D8BE11003EDA44 /* Game.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -214,11 +246,15 @@
 				20FA4E3915D2205200A863EE /* main.m in Sources */,
 				20FA4E3D15D2205200A863EE /* SCAppDelegate.m in Sources */,
 				20FA4E4615D2205200A863EE /* SoccerCoach.xcdatamodeld in Sources */,
-				20FA4E4915D2205200A863EE /* SCMasterViewController.m in Sources */,
-				20FA4E4C15D2205200A863EE /* SCDetailViewController.m in Sources */,
-				20545D4B15D43E9900505E7F /* SCTeamSelectorViewController.m in Sources */,
-				205412AA15D4DDC600E3F9AE /* SCTeamBubbleView.m in Sources */,
-				203DA33115D78AB400511E7C /* SCAddTeamView.m in Sources */,
+				20545D4B15D43E9900505E7F /* SCTeamViewController.m in Sources */,
+				205412AA15D4DDC600E3F9AE /* SCTeamShowView.m in Sources */,
+				203DA33115D78AB400511E7C /* SCTeamCreateView.m in Sources */,
+				20FBA7B615D8BE11003EDA44 /* Game.m in Sources */,
+				20FBA7B915D8BE26003EDA44 /* GamePlayer.m in Sources */,
+				20FBA7BC15D8BE37003EDA44 /* Player.m in Sources */,
+				20FBA7BF15D8BE42003EDA44 /* PlayingTime.m in Sources */,
+				20FBA7C215D8BE51003EDA44 /* Team.m in Sources */,
+				20FBA7C515D8BE60003EDA44 /* TeamGameSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

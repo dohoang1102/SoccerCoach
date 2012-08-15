@@ -7,9 +7,7 @@
 //
 
 #import "SCAppDelegate.h"
-
-#import "SCMasterViewController.h"
-#import "SCTeamSelectorViewController.h"
+#import "SCTeamViewController.h"
 
 @implementation SCAppDelegate
 
@@ -21,13 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-	UIWindow* window  =  [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	UIWindow *window  =  [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	window.backgroundColor = [UIColor whiteColor];
 	self.window = window;
 
+	SCTeamViewController *teamSelectorViewController = [[SCTeamViewController alloc] init];
+	teamSelectorViewController.managedObjectContext = self.managedObjectContext;
 
-	SCTeamSelectorViewController* teamSelectorViewController = [[SCTeamSelectorViewController alloc] init];
-	UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:teamSelectorViewController];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:teamSelectorViewController];
 	self.window.rootViewController = navController;
 
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -242,7 +241,12 @@
 	// Make a URL to the documents directory for our sqlite db file.
 	//
 	NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SoccerCoach.sqlite"];
-	[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+
+
+	//
+	// DELETE THE STORE
+	//	[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+	//
 	
 	//
 	// Pre-create an error in case the creation of the db fails
