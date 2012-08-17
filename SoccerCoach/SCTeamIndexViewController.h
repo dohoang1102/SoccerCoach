@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCTeamCreateView.h"
 
-@interface SCTeamViewController : UIViewController
+@interface SCTeamIndexViewController : UIViewController
 @property (nonatomic, retain) NSArray *teams;
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UILabel *mainTitle;

@@ -18,5 +18,7 @@ typedef void (^teamBlock) (Team *team);
 @property (nonatomic, retain) UITextField *seasonInput;
 @property (nonatomic, retain) UIButton *saveButton;
 
-- (id)initWithFrame:(CGRect)frame forTeam:(Team *)aTeam completion:(teamBlock) completionBlock;
+- (id)initWithFrame:(CGRect)frame
+            forTeam:(Team *)aTeam
+         completion:(teamBlock) completionBlock;
 @end

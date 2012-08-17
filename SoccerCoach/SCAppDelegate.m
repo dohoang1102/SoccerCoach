@@ -7,7 +7,7 @@
 //
 
 #import "SCAppDelegate.h"
-#import "SCTeamViewController.h"
+#import "SCTeamIndexViewController.h"
 
 @implementation SCAppDelegate
 
@@ -23,10 +23,10 @@
 	window.backgroundColor = [UIColor whiteColor];
 	self.window = window;
 
-	SCTeamViewController *teamSelectorViewController = [[SCTeamViewController alloc] init];
-	teamSelectorViewController.managedObjectContext = self.managedObjectContext;
+	SCTeamIndexViewController *teamViewController = [[SCTeamIndexViewController alloc] init];
+	teamViewController.managedObjectContext = self.managedObjectContext;
 
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:teamSelectorViewController];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:teamViewController];
 	self.window.rootViewController = navController;
 
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -35,7 +35,6 @@
 	else {
 		// iphone
 	}
-
 
 	[self.window makeKeyAndVisible];
 

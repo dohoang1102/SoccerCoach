@@ -14,8 +14,6 @@
 #define BUTTON_WIDTH 140
 #define INPUT_GAP 15
 
-
-
 @interface SCTeamCreateView ()
 
 @property (copy,nonatomic) teamBlock completion;
@@ -30,9 +28,12 @@
 
   if (self) {
     self.completion = completionBlock;
-    
-    self.backgroundColor = [UIColor colorWithRed:0.69 green:0.87 blue:0.94 alpha:1.0f];
-    
+
+    self.backgroundColor = [UIColor colorWithRed:0.69
+                                           green:0.87
+                                            blue:0.94
+                                           alpha:1.0f];
+
     int formWidth = (TEXT_FIELD_WIDTH + INPUT_GAP + BUTTON_WIDTH);
     int formHeight = (TEXT_FIELD_HEIGHT + INPUT_GAP + TEXT_FIELD_HEIGHT);
     int formX = (frame.size.width / 2) - (formWidth / 2);
@@ -44,20 +45,26 @@
     self.formContainer.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
     self.nameInput = [self buildTextFieldWithFrame:CGRectMake(0, 0, TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT)
-                           andPlaceholderText:@"team name"];
+                                andPlaceholderText:@"team name"];
 
     self.seasonInput = [self buildTextFieldWithFrame:CGRectMake(0, (TEXT_FIELD_HEIGHT + INPUT_GAP), TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT)
-                             andPlaceholderText:@"season, like \"fall 2012\""];
+                                  andPlaceholderText:@"season, like \"fall 2012\""];
 
     self.saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.saveButton.frame = CGRectMake((TEXT_FIELD_WIDTH + INPUT_GAP), 0, BUTTON_WIDTH, formHeight);
-    self.saveButton.backgroundColor = [UIColor colorWithWhite:0.80 alpha:1.0];
+    self.saveButton.backgroundColor = [UIColor colorWithWhite:0.80
+                                                        alpha:1.0];
     self.saveButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     self.saveButton.titleLabel.textAlignment = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    self.saveButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:25];
+    self.saveButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight"
+                                                      size:25];
     [self.saveButton setTitle:@"add" forState:UIControlStateNormal];
-    [self.saveButton setTitleColor:[UIColor colorWithWhite:0.33 alpha:1.0] forState:UIControlStateNormal];
-    [self.saveButton addTarget:self action:@selector(handleSaveTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.saveButton setTitleColor:[UIColor colorWithWhite:0.33
+                                                     alpha:1.0]
+                          forState:UIControlStateNormal];
+    [self.saveButton addTarget:self
+                        action:@selector(handleSaveTap:)
+              forControlEvents:UIControlEventTouchUpInside];
 
     [self.formContainer addSubview:self.nameInput];
     [self.formContainer addSubview:self.seasonInput];
@@ -79,8 +86,10 @@
   textField.leftViewMode = UITextFieldViewModeAlways;
   textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
-  textField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
-  textField.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:25];
+  textField.backgroundColor = [UIColor colorWithWhite:1.0
+                                                alpha:0.8];
+  textField.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight"
+                                   size:25];
   textField.placeholder = placeholderText;
 
   return textField;
@@ -103,7 +112,9 @@
   }
   else {
     // Invoke the completion block
-    self.completion(self.team);
+//    self.completion(self.team);
+    [self saveFailedWithError:error];
+
   }
 }
 
@@ -118,7 +129,8 @@
                            CGPointMake([self.formContainer center].x - 20.0f, [self.formContainer center].y)]];
   [animation setToValue:[NSValue valueWithCGPoint:
                          CGPointMake([self.formContainer center].x + 20.0f, [self.formContainer center].y)]];
-  [[self.formContainer layer] addAnimation:animation forKey:@"position"];
+  [[self.formContainer layer] addAnimation:animation
+                                    forKey:@"position"];
 }
 
 @end

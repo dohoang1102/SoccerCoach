@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Team.h"
 
-@interface SCTeamShowView : UIView
+typedef void (^gestureBlock) (Team* team, UIGestureRecognizer* gesture);
+
+@interface SCTeamPartialView : UIView
 
 - (id)initWithFrame:(CGRect)frame
             andTeam:(Team*)aTeam;
@@ -21,6 +23,9 @@
 @property (nonatomic, retain) Team *team;
 @property (nonatomic,retain) UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic,retain) UILongPressGestureRecognizer *pressRecognizer;
-@property BOOL isNewTeamView;
+@property (assign) BOOL isNewTeamView;
+@property (copy) gestureBlock teamTapped;
+@property (copy) gestureBlock teamDoubleTapped;
+@property (copy) gestureBlock teamLongPressed;
 
 @end

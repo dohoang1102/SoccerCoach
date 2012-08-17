@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 rand9. All rights reserved.
 //
 
-#import "SCTeamViewController.h"
-#import "SCTeamShowView.h"
+#import "SCTeamIndexViewController.h"
+#import "SCTeamPartialView.h"
+#import "SCTeamShowViewController.h"
 
 #define TEAM_BUBBLE_MARGIN_BETWEEN 50
 
@@ -19,7 +20,7 @@
 
 #define TEAM_BUBBLE_FRAME_WIDTH_WITH_MARGIN (TEAM_BUBBLE_FRAME_WIDTH + TEAM_BUBBLE_MARGIN_BETWEEN)
 
-@implementation SCTeamViewController
+@implementation SCTeamIndexViewController
 
 @synthesize teams = _teams;
 @synthesize scrollView = _scrollView;
@@ -32,7 +33,7 @@
 - (void)loadView
 {
   [super loadView];
-  
+
   self.view.backgroundColor = [UIColor whiteColor];
   self.navigationController.navigationBar.hidden = YES;
 
@@ -41,7 +42,6 @@
   self.mainTitle.textAlignment = UITextAlignmentRight;
   self.mainTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   self.mainTitle.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:65];
-  self.mainTitle.tag = 1;
 
   self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 105, self.view.bounds.size.width, 250)];
   self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -74,7 +74,7 @@
 {
   int pageMultipliedWidth = self.scrollView.bounds.size.width * [self pageCountWithScreenWidth:self.scrollView.bounds.size.width];
   self.scrollView.contentSize = CGSizeMake(pageMultipliedWidth, self.scrollView.bounds.size.height);
-  
+
   NSMutableArray *xCoordinates = [self buildXCoordinatesForTeamViews];
   int yValue = (self.scrollView.bounds.size.height / 2) - TEAM_BUBBLE_FRAME_HALF_HEIGHT;
 
@@ -84,25 +84,31 @@
     //    NSLog(@"%@ card at index %d", team, index);
     NSNumber *xValue = [xCoordinates objectAtIndex:index];
     CGRect frame = CGRectMake([xValue floatValue], yValue, TEAM_BUBBLE_FRAME_WIDTH, TEAM_BUBBLE_FRAME_HEIGHT);
-    SCTeamShowView *bubbleView = nil;
+    SCTeamPartialView *teamPartial = nil;
 
     if (index < [self.scrollView.subviews count]) {
-      bubbleView = [self.scrollView.subviews objectAtIndex:index];
-      bubbleView.frame = frame;
+      teamPartial = [self.scrollView.subviews objectAtIndex:index];
+      teamPartial.frame = frame;
     }
 
-    if (bubbleView == nil) {
+    if (teamPartial == nil) {
       if (team == @"+ add team") {
-        bubbleView = [[SCTeamShowView alloc] initAsNewTeamButtonWithFrame:frame
-                                                         withViewController:self
-                                                            withTapSelector:@selector(showNewTeamView:)];
+        teamPartial = [[SCTeamPartialView alloc] initAsNewTeamButtonWithFrame:frame
+                                                          withViewController:self
+                                                             withTapSelector:@selector(showNewTeamView:)];
       }
       else {
-        bubbleView = [[SCTeamShowView alloc] initWithFrame:frame
-                                                     andTeam:(Team*)team];
+        teamPartial = [[SCTeamPartialView alloc] initWithFrame:frame
+                                                      andTeam:(Team*)team];
       }
 
-      [self.scrollView addSubview:bubbleView];
+      teamPartial.teamTapped = ^(Team* team, UIGestureRecognizer* gesture) {
+        NSLog(@"teamtapped block called");
+        SCTeamShowViewController* teamvc = [SCTeamShowViewController viewControllerWithTeam:team];
+        [self.navigationController pushViewController:teamvc animated:YES];
+      };
+
+      [self.scrollView addSubview:teamPartial];
     }
   }];
 }
@@ -166,15 +172,10 @@
 
   CGRect teamFrame = CGRectMake(frameStartX, frameStartY, frameWidth, frameHeight);
   self.teamCreateView = [[SCTeamCreateView alloc] initWithFrame:teamFrame
-                                                forTeam:newTeam
-                                             completion:^(Team *team) {
-                                               [self newTeamSaved:team];
-                                             }];
-                                        
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(newTeamSaved:)
-                                               name:@"teamSaved"
-                                             object:self.teamCreateView];
+                                                        forTeam:newTeam
+                                                     completion:^(Team *team) {
+                                                       [self newTeamSaved:team];
+                                                     }];
 
   UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(addTeamViewSwipeClose:)];
@@ -200,8 +201,8 @@
 
   self.hudAlert = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width / 2) - 150, (self.view.bounds.size.width / 2) - 150, 300, 300)];
   self.hudAlert.backgroundColor = [UIColor colorWithWhite:0.33f alpha:1.0f];
-//  hudAlert.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//  hudAlert.alpha = 0.0f;
+  //  hudAlert.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+  //  hudAlert.alpha = 0.0f;
 
   UILabel *saveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 138, self.hudAlert.frame.size.width, self.hudAlert.frame.size.height)];
   saveLabel.textAlignment = UITextAlignmentCenter;

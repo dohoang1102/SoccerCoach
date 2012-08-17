@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 rand9. All rights reserved.
 //
 
-#import "SCTeamShowView.h"
+#import "SCTeamPartialView.h"
 
-@implementation SCTeamShowView
+@implementation SCTeamPartialView
 
 @synthesize team;
 @synthesize tapRecognizer;
@@ -18,18 +18,18 @@
             andTeam:(Team*)aTeam
 {
   self = [super initWithFrame:frame];
-  
+
   if (self) {
     team = aTeam;
     self.isNewTeamView = NO;
     self.backgroundColor = [UIColor clearColor];
 
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                 action:@selector(handleTapGesture:)];
+                                                            action:@selector(handleTapGesture:)];
 
     pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                         action:@selector(handleLongPressGesture:)];
-    
+                                                                    action:@selector(handleLongPressGesture:)];
+
     [self addGestureRecognizer:tapRecognizer];
     [self addGestureRecognizer:pressRecognizer];
 
@@ -39,7 +39,8 @@
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.text = team.name;
     nameLabel.textColor = [UIColor blackColor];
-    nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light"
+                                     size:18];
 
     UILabel *seasonLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, nameLabel.frame.origin.y + 25, self.frame.size.width, 20)];
     seasonLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -47,7 +48,8 @@
     seasonLabel.backgroundColor = [UIColor clearColor];
     seasonLabel.text = team.season;
     seasonLabel.textColor = [UIColor grayColor];
-    seasonLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14];
+    seasonLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight"
+                                       size:14];
 
     [self addSubview:nameLabel];
     [self addSubview:seasonLabel];
@@ -64,7 +66,7 @@
 
   if (self) {
     self.isNewTeamView = YES;
-    
+
     team = [[Team alloc] init];
     team.name = @"+ add team";
 
@@ -116,9 +118,10 @@
   CGContextDrawPath(ctx, kCGPathFillStroke);
 }
 
-- (void)handleTapGesture:(UITapGestureRecognizer *)tapRecognizer
+- (void)handleTapGesture:(UITapGestureRecognizer *)tap
 {
   NSLog(@"received a tap gesture on %@", team.name);
+  self.teamTapped(self.team, tap);
 }
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)tapRecognizer
