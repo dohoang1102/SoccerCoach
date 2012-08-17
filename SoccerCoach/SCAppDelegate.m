@@ -244,7 +244,7 @@
 
 	//
 	// DELETE THE STORE
-	//	[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+	//[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
 	//
 	
 	//

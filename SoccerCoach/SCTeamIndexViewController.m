@@ -7,23 +7,8 @@
 //
 
 #import "SCTeamIndexViewController.h"
-#import "SCTeamPartialView.h"
-#import "SCTeamShowViewController.h"
-
-#define TEAM_BUBBLE_MARGIN_BETWEEN 50
-
-#define TEAM_BUBBLE_FRAME_HEIGHT 200
-#define TEAM_BUBBLE_FRAME_HALF_HEIGHT (TEAM_BUBBLE_FRAME_HEIGHT / 2)
-
-#define TEAM_BUBBLE_FRAME_WIDTH 200
-#define TEAM_BUBBLE_FRAME_HALF_WIDTH (TEAM_BUBBLE_FRAME_WIDTH / 2)
-
-#define TEAM_BUBBLE_FRAME_WIDTH_WITH_MARGIN (TEAM_BUBBLE_FRAME_WIDTH + TEAM_BUBBLE_MARGIN_BETWEEN)
 
 @implementation SCTeamIndexViewController
-
-@synthesize teams = _teams;
-@synthesize scrollView = _scrollView;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -43,9 +28,20 @@
   self.mainTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   self.mainTitle.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:65];
 
-  self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 105, self.view.bounds.size.width, 250)];
-  self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-  self.scrollView.pagingEnabled = YES;
+  self.scrollView = [[SCTeamListScrollView alloc] initWithFrame:CGRectMake(0, 105, self.view.bounds.size.width, 250)
+                                        andManagedObjectContext:self.managedObjectContext];
+
+  self.scrollView.teamTapped = ^(Team* team, UIGestureRecognizer* gesture) {
+    NSLog(@"teamtapped block called");
+    SCTeamShowViewController* teamvc = [SCTeamShowViewController viewControllerWithTeam:team];
+    [self.navigationController pushViewController:teamvc animated:YES];
+  };
+
+  self.scrollView.teamLongPressed = ^(Team* team, UIGestureRecognizer* gesture) {
+    NSLog(@"teamtapped block called");
+    SCTeamShowViewController* teamvc = [SCTeamShowViewController viewControllerWithTeam:team];
+    [self.navigationController pushViewController:teamvc animated:YES];
+  };
 
   UILabel *scheduleTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 375, self.view.bounds.size.width - 10, 75)];
   scheduleTitle.text = @"// upcoming games";
@@ -57,7 +53,7 @@
   addTeamButton.frame=CGRectMake(20, 20, 50, 35);
   addTeamButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   [addTeamButton setTitle:@"Add Team" forState:UIControlStateNormal];
-  [addTeamButton addTarget:self action:@selector(showNewTeamView:) forControlEvents:UIControlEventTouchUpInside];
+  [addTeamButton addTarget:self action:@selector(showTeamEditView:) forControlEvents:UIControlEventTouchUpInside];
 
   [self.view addSubview:self.mainTitle];
   [self.view addSubview:self.scrollView];
@@ -67,100 +63,10 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-  [self drawTeams];
+  [self.scrollView drawTeams];
 }
 
-- (void)drawTeams
-{
-  int pageMultipliedWidth = self.scrollView.bounds.size.width * [self pageCountWithScreenWidth:self.scrollView.bounds.size.width];
-  self.scrollView.contentSize = CGSizeMake(pageMultipliedWidth, self.scrollView.bounds.size.height);
-
-  NSMutableArray *xCoordinates = [self buildXCoordinatesForTeamViews];
-  int yValue = (self.scrollView.bounds.size.height / 2) - TEAM_BUBBLE_FRAME_HALF_HEIGHT;
-
-  NSLog(@"drawing %d teams", [self.teams count]);
-
-  [self.teams enumerateObjectsUsingBlock:^(id team, NSUInteger index, BOOL *stop) {
-    //    NSLog(@"%@ card at index %d", team, index);
-    NSNumber *xValue = [xCoordinates objectAtIndex:index];
-    CGRect frame = CGRectMake([xValue floatValue], yValue, TEAM_BUBBLE_FRAME_WIDTH, TEAM_BUBBLE_FRAME_HEIGHT);
-    SCTeamPartialView *teamPartial = nil;
-
-    if (index < [self.scrollView.subviews count]) {
-      teamPartial = [self.scrollView.subviews objectAtIndex:index];
-      teamPartial.frame = frame;
-    }
-
-    if (teamPartial == nil) {
-      if (team == @"+ add team") {
-        teamPartial = [[SCTeamPartialView alloc] initAsNewTeamButtonWithFrame:frame
-                                                          withViewController:self
-                                                             withTapSelector:@selector(showNewTeamView:)];
-      }
-      else {
-        teamPartial = [[SCTeamPartialView alloc] initWithFrame:frame
-                                                      andTeam:(Team*)team];
-      }
-
-      teamPartial.teamTapped = ^(Team* team, UIGestureRecognizer* gesture) {
-        NSLog(@"teamtapped block called");
-        SCTeamShowViewController* teamvc = [SCTeamShowViewController viewControllerWithTeam:team];
-        [self.navigationController pushViewController:teamvc animated:YES];
-      };
-
-      [self.scrollView addSubview:teamPartial];
-    }
-  }];
-}
-
-- (NSArray*)teams
-{
-  if (_teams == nil) {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Team"];
-
-    NSSortDescriptor *alphaSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:alphaSort];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-
-    NSError *error = nil;
-    _teams = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (_teams == nil) {
-      NSLog(@"Fetched teams returned an error: %@", error);
-    }
-  }
-  return _teams;
-}
-
-- (NSMutableArray*)buildXCoordinatesForTeamViews
-{
-  NSMutableArray *coords = [[NSMutableArray alloc] init];
-  int xCenter = self.scrollView.contentSize.width / 2;
-
-  int teamFullWidth = [self calculateTeamWidth];
-  int teamFullCenter = teamFullWidth / 2;
-  int xOffset = xCenter - teamFullCenter;
-
-  NSLog(@"Building coords for %d teams", [self.teams count]);
-  for (int i = 0; i < [self.teams count]; i++) {
-    NSNumber *xCoord = [NSNumber numberWithInt:((i * TEAM_BUBBLE_FRAME_WIDTH_WITH_MARGIN) + xOffset)];
-    NSLog(@"For index %d Found xCoord %@", i, xCoord);
-    [coords addObject:xCoord];
-  }
-
-  return coords;
-}
-
-- (int)calculateTeamWidth
-{
-  return ([self.teams count] * TEAM_BUBBLE_FRAME_WIDTH) + (([self.teams count] - 1) * TEAM_BUBBLE_MARGIN_BETWEEN);
-}
-
-- (int)pageCountWithScreenWidth:(int)screenWidth
-{
-  return (int) (floor([self calculateTeamWidth] / screenWidth) + 1);
-}
-
-- (void)showNewTeamView:(UITapGestureRecognizer*)tapGesture
+- (void)showTeamEditView:(UITapGestureRecognizer*)tapGesture
 {
   int frameStartX = self.view.bounds.size.width + 10;
   int frameStartY = self.scrollView.frame.origin.y;
@@ -171,14 +77,14 @@
                                                        inManagedObjectContext:self.managedObjectContext];
 
   CGRect teamFrame = CGRectMake(frameStartX, frameStartY, frameWidth, frameHeight);
-  self.teamCreateView = [[SCTeamCreateView alloc] initWithFrame:teamFrame
+  self.teamCreateView = [[SCTeamEditView alloc] initWithFrame:teamFrame
                                                         forTeam:newTeam
                                                      completion:^(Team *team) {
-                                                       [self newTeamSaved:team];
+                                                       [self teamEditSaved:team];
                                                      }];
 
   UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                     action:@selector(addTeamViewSwipeClose:)];
+                                                                                     action:@selector(teamEditViewSwipeClose:)];
   swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
   [self.teamCreateView addGestureRecognizer:swipeGesture];
 
@@ -195,9 +101,9 @@
   [UIView commitAnimations];
 }
 
-- (void)newTeamSaved:(Team*)team
+- (void)teamEditSaved:(Team*)team
 {
-  [self closeAddTeamView];
+  [self closeTeamEditView];
 
   self.hudAlert = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width / 2) - 150, (self.view.bounds.size.width / 2) - 150, 300, 300)];
   self.hudAlert.backgroundColor = [UIColor colorWithWhite:0.33f alpha:1.0f];
@@ -217,12 +123,12 @@
   [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(closeHudAlert:) userInfo:nil repeats:NO];
 }
 
-- (void)addTeamViewSwipeClose:(UISwipeGestureRecognizer*)swipeGesture
+- (void)teamEditViewSwipeClose:(UISwipeGestureRecognizer*)swipeGesture
 {
-  [self closeAddTeamView];
+  [self closeTeamEditView];
 }
 
-- (void)closeAddTeamView
+- (void)closeTeamEditView
 {
   int frameEndX = self.view.bounds.size.width + 10;
   int frameEndY = self.scrollView.frame.origin.y;

@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCTeamCreateView.h"
+#import "SCTeamListScrollView.h"
 
 @interface SCTeamIndexViewController : UIViewController
-@property (nonatomic, retain) NSArray *teams;
-@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) SCTeamListScrollView *scrollView;
 @property (nonatomic, retain) UILabel *mainTitle;
-@property (nonatomic, retain) SCTeamCreateView *teamCreateView;
+@property (nonatomic, retain) SCTeamEditView *teamCreateView;
 @property (nonatomic, retain) UIView *hudAlert;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end

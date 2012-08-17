@@ -11,8 +11,6 @@
 @implementation SCTeamPartialView
 
 @synthesize team;
-@synthesize tapRecognizer;
-@synthesize pressRecognizer;
 
 - (id)initWithFrame:(CGRect)frame
             andTeam:(Team*)aTeam
@@ -24,14 +22,22 @@
     self.isNewTeamView = NO;
     self.backgroundColor = [UIColor clearColor];
 
-    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                            action:@selector(handleTapGesture:)];
-
-    pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                    action:@selector(handleTapGesture:)];
+    
+    UITapGestureRecognizer* doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                    action:@selector(handleDoubleTapGesture:)];
+    doubleTap.numberOfTapsRequired = 2;
+    
+    UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                     action:@selector(handleLongPressGesture:)];
 
-    [self addGestureRecognizer:tapRecognizer];
-    [self addGestureRecognizer:pressRecognizer];
+    [tap requireGestureRecognizerToFail:longPress];
+    [tap requireGestureRecognizerToFail:doubleTap];
+
+    [self addGestureRecognizer:tap];
+    [self addGestureRecognizer:doubleTap];
+    [self addGestureRecognizer:longPress];
 
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ((self.frame.size.height / 2) - 10), self.frame.size.width, 20)];
     nameLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -53,27 +59,6 @@
 
     [self addSubview:nameLabel];
     [self addSubview:seasonLabel];
-  }
-
-  return self;
-}
-
-- (id)initAsNewTeamButtonWithFrame:(CGRect)frame
-                withViewController:(UIViewController*)viewController
-                   withTapSelector:(SEL)tapSelector
-{
-  self = [self initWithFrame:frame];
-
-  if (self) {
-    self.isNewTeamView = YES;
-
-    team = [[Team alloc] init];
-    team.name = @"+ add team";
-
-    [self removeGestureRecognizer:self.tapRecognizer];
-    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:viewController
-                                                                 action:tapSelector];
-    [self addGestureRecognizer:tapRecognizer];
   }
 
   return self;
@@ -121,12 +106,25 @@
 - (void)handleTapGesture:(UITapGestureRecognizer *)tap
 {
   NSLog(@"received a tap gesture on %@", team.name);
-  self.teamTapped(self.team, tap);
+  if (self.teamTapped != nil) {
+    self.teamTapped(self.team, tap);
+  }
 }
 
-- (void)handleLongPressGesture:(UILongPressGestureRecognizer *)tapRecognizer
+- (void)handleDoubleTapGesture:(UITapGestureRecognizer *)doubleTap
+{
+  NSLog(@"received a double tap gesture on %@", team.name);
+  if (self.teamDoubleTapped != nil) {
+    self.teamDoubleTapped(self.team, doubleTap);
+  }
+}
+
+- (void)handleLongPressGesture:(UILongPressGestureRecognizer *)press
 {
   NSLog(@"received a long press gesture on %@", team.name);
+  if (self.teamLongPressed != nil) {
+    self.teamLongPressed(self.team, press);
+  }
 }
 
 @end

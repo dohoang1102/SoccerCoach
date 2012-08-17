@@ -7,20 +7,20 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "SCTeamCreateView.h"
+#import "SCTeamEditView.h"
 
 #define TEXT_FIELD_WIDTH 300
 #define TEXT_FIELD_HEIGHT 35
 #define BUTTON_WIDTH 140
 #define INPUT_GAP 15
 
-@interface SCTeamCreateView ()
+@interface SCTeamEditView ()
 
 @property (copy,nonatomic) teamBlock completion;
 
 @end
 
-@implementation SCTeamCreateView
+@implementation SCTeamEditView
 
 - (id)initWithFrame:(CGRect)frame forTeam:(Team *)aTeam completion:(teamBlock) completionBlock
 {
@@ -46,6 +46,8 @@
 
     self.nameInput = [self buildTextFieldWithFrame:CGRectMake(0, 0, TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT)
                                 andPlaceholderText:@"team name"];
+    self.nameInput.text = self.team.name;
+    self.seasonInput.text = self.team.season;
 
     self.seasonInput = [self buildTextFieldWithFrame:CGRectMake(0, (TEXT_FIELD_HEIGHT + INPUT_GAP), TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT)
                                   andPlaceholderText:@"season, like \"fall 2012\""];
@@ -112,9 +114,7 @@
   }
   else {
     // Invoke the completion block
-//    self.completion(self.team);
-    [self saveFailedWithError:error];
-
+    self.completion(self.team);
   }
 }
 

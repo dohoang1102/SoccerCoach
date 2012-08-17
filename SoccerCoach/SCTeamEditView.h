@@ -11,7 +11,7 @@
 
 typedef void (^teamBlock) (Team *team);
 
-@interface SCTeamCreateView : UIView
+@interface SCTeamEditView : UIView
 @property (nonatomic, retain) Team *team;
 @property (nonatomic, retain) UIView *formContainer;
 @property (nonatomic, retain) UITextField *nameInput;
